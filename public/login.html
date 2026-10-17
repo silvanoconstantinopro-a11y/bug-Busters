@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login — Bug Busters</title>
+  <meta name="description" content="Acesso reservado à equipa Bug Busters." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="__PAGE_URL__" />
+  <meta property="og:title" content="Login — Bug Busters" />
+  <meta property="og:description" content="Acesso reservado à equipa Bug Busters." />
+  <meta property="og:image" content="__PUBLIC_ORIGIN__/img/meta.jpeg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:alt" content="Logo da Bug Busters" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Login — Bug Busters" />
+  <meta name="twitter:description" content="Acesso reservado à equipa Bug Busters." />
+  <meta name="twitter:image" content="__PUBLIC_ORIGIN__/img/meta.jpeg" />
+  <meta name="twitter:image:alt" content="Logo da Bug Busters" />
+  <link rel="icon" type="image/jpeg" href="/img/icon.jpeg" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="login-wrap">
+    <h1 style="text-align:center;margin-bottom:0.5rem">Painel Bug Busters</h1>
+    <p style="text-align:center;color:var(--gray-500);margin-bottom:2rem">Acesso reservado à equipa.</p>
+    <div id="login-error" class="alert alert-error" style="display:none"></div>
+    <form id="login-form">
+      <div class="field">
+        <label>E-mail</label>
+        <input id="email" type="email" required />
+      </div>
+      <div class="field">
+        <label>Palavra-passe</label>
+        <input id="password" type="password" required />
+      </div>
+      <button class="btn btn-primary" style="width:100%">Entrar</button>
+    </form>
+    <p style="text-align:center;margin-top:1.5rem"><a href="/">← Voltar ao site</a></p>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.getElementById('login-form').addEventListener('submit', async e => {
+      e.preventDefault();
+      const errorEl = document.getElementById('login-error');
+      errorEl.style.display = 'none';
+      try {
+        await api('/auth/login', {
+          method: 'POST',
+          body: JSON.stringify({
+            email: document.getElementById('email').value,
+            password: document.getElementById('password').value,
+          }),
+        });
+        location.href = '/admin.html';
+      } catch (err) {
+        errorEl.textContent = err.message;
+        errorEl.style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>

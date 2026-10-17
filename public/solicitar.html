@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solicitar Projecto — Bug Busters</title>
+  <meta name="description" content="Descreva a sua ideia e solicite um projecto à Bug Busters." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="__PAGE_URL__" />
+  <meta property="og:title" content="Solicitar Projecto — Bug Busters" />
+  <meta property="og:description" content="Descreva a sua ideia e solicite um projecto à Bug Busters." />
+  <meta property="og:image" content="__PUBLIC_ORIGIN__/img/meta.jpeg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:alt" content="Logo da Bug Busters" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Solicitar Projecto — Bug Busters" />
+  <meta name="twitter:description" content="Descreva a sua ideia e solicite um projecto à Bug Busters." />
+  <meta name="twitter:image" content="__PUBLIC_ORIGIN__/img/meta.jpeg" />
+  <meta name="twitter:image:alt" content="Logo da Bug Busters" />
+  <link rel="icon" type="image/jpeg" href="/img/icon.jpeg" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav">
+      <a class="logo" href="index.html"><span class="logo-mark">BB</span><span>BUG BUSTERS</span></a>
+      <nav class="menu">
+        <a href="index.html">Início</a>
+        <a href="servicos.html">Serviços</a>
+        <a href="equipa.html">Equipa</a>
+        <a href="portfolio.html">Portfólio</a>
+        <a href="contactos.html">Contactos</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="form-wrap">
+    <h1 style="margin-bottom:0.5rem">Solicitar um Projecto</h1>
+    <p style="color:var(--gray-500);margin-bottom:2rem">Descreva a sua ideia. Entraremos em contacto pelo WhatsApp indicado.</p>
+
+    <div class="step-indicator">
+      <div class="step active" data-step="1">1. Dados pessoais</div>
+      <div class="step" data-step="2">2. Projecto</div>
+      <div class="step" data-step="3">3. Revisão</div>
+    </div>
+
+    <div id="form-error" class="alert alert-error" style="display:none"></div>
+
+    <form id="request-form">
+      <!-- Etapa 1 -->
+      <div class="form-step active" data-step="1">
+        <div class="field">
+          <label>Nome completo <span class="req">*</span></label>
+          <input id="full_name" required />
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>E-mail</label>
+            <input id="email" type="email" />
+          </div>
+          <div class="field">
+            <label>Organização / Instituição</label>
+            <input id="organization" />
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>Código do país <span class="req">*</span></label>
+            <select id="country_code">
+              <option value="+244">Angola (+244)</option>
+              <option value="+351">Portugal (+351)</option>
+              <option value="+55">Brasil (+55)</option>
+              <option value="+258">Moçambique (+258)</option>
+              <option value="+238">Cabo Verde (+238)</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Número de WhatsApp <span class="req">*</span></label>
+            <input id="phone" placeholder="923000000" required />
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>País <span class="req">*</span></label>
+            <input id="country" placeholder="Angola" required />
+          </div>
+          <div class="field">
+            <label>Cidade / Província</label>
+            <input id="city" placeholder="Benguela" />
+          </div>
+        </div>
+        <div class="form-actions">
+          <span></span>
+          <button type="button" class="btn btn-primary" onclick="nextStep()">Continuar →</button>
+        </div>
+      </div>
+
+      <!-- Etapa 2 -->
+      <div class="form-step" data-step="2">
+        <div class="field">
+          <label>Tema ou nome do projecto <span class="req">*</span></label>
+          <input id="title" required />
+        </div>
+        <div class="field">
+          <label>Objectivo principal <span class="req">*</span></label>
+          <textarea id="objective" required></textarea>
+        </div>
+        <div class="field">
+          <label>Descrição das funcionalidades <span class="req">*</span></label>
+          <textarea id="description" required></textarea>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>Tipo de projecto</label>
+            <select id="project_type">
+              <option value="web">Website ou sistema web</option>
+              <option value="mobile">Aplicação mobile</option>
+              <option value="web_mobile">Web e mobile</option>
+              <option value="other">Outro tipo de solução</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Categoria do cliente</label>
+            <select id="client_category">
+              <option value="company">Empresa ou negócio</option>
+              <option value="personal">Projecto pessoal</option>
+              <option value="academic">Projecto escolar ou académico</option>
+              <option value="institutional">Instituição ou organização</option>
+              <option value="other">Outro</option>
+            </select>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>Área de aplicação</label>
+            <input id="industry" placeholder="Educação, comércio, saúde..." />
+          </div>
+          <div class="field">
+            <label>Orçamento estimado</label>
+            <input id="budget_range" placeholder="Ex.: a combinar, 500.000 Kz..." />
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>Prazo desejado</label>
+            <input id="desired_deadline" placeholder="Ex.: 3 meses" />
+          </div>
+          <div class="field">
+            <label>Estado actual</label>
+            <input id="current_stage" placeholder="Ideia, já iniciado, sistema existente..." />
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="button" class="btn btn-outline" onclick="prevStep()">← Voltar</button>
+          <button type="button" class="btn btn-primary" onclick="nextStep()">Continuar →</button>
+        </div>
+      </div>
+
+      <!-- Etapa 3 -->
+      <div class="form-step" data-step="3">
+        <h3 style="margin-bottom:1rem">Revisão</h3>
+        <div class="card" id="review-content"></div>
+        <div class="field checkbox-field" style="margin-top:1.5rem">
+          <input id="privacy_consent" type="checkbox" />
+          <label for="privacy_consent">Aceito a utilização dos meus dados para análise e contacto sobre esta solicitação, conforme a <a href="/privacidade.html" target="_blank">política de privacidade</a>. <span class="req">*</span></label>
+        </div>
+        <div class="form-actions">
+          <button type="button" class="btn btn-outline" onclick="prevStep()">← Voltar</button>
+          <button type="submit" class="btn btn-primary">Submeter solicitação</button>
+        </div>
+      </div>
+    </form>
+  </section>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/form.js"></script>
+</body>
+</html>

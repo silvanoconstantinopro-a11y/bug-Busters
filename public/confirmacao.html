@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Confirmação — Bug Busters</title>
+  <meta name="description" content="A sua solicitação foi recebida pela Bug Busters." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="__PAGE_URL__" />
+  <meta property="og:title" content="Confirmação — Bug Busters" />
+  <meta property="og:description" content="A sua solicitação foi recebida pela Bug Busters." />
+  <meta property="og:image" content="__PUBLIC_ORIGIN__/img/meta.jpeg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:alt" content="Logo da Bug Busters" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Confirmação — Bug Busters" />
+  <meta name="twitter:description" content="A sua solicitação foi recebida pela Bug Busters." />
+  <meta name="twitter:image" content="__PUBLIC_ORIGIN__/img/meta.jpeg" />
+  <meta name="twitter:image:alt" content="Logo da Bug Busters" />
+  <link rel="icon" type="image/jpeg" href="/img/icon.jpeg" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav">
+      <a class="logo" href="/"><span class="logo-mark">BB</span><span>BUG BUSTERS</span></a>
+      <nav class="menu"><a href="/">Início</a></nav>
+    </div>
+  </header>
+
+  <section style="max-width:640px;margin:0 auto;text-align:center;padding:4rem 1.5rem">
+    <h1>Solicitação recebida 🎉</h1>
+    <p style="color:var(--gray-300);margin:1rem 0 2rem">
+      Obrigado! A sua solicitação foi registada com sucesso. Guarde a referência abaixo.
+    </p>
+    <div class="reference-box">
+      <div class="ref" id="ref"></div>
+      <p style="color:var(--gray-500);margin-top:0.8rem">Referência do pedido</p>
+    </div>
+    <p style="margin-bottom:2rem;color:var(--gray-300)">
+      Para acelerar o processo, pode continuar a conversa directamente no WhatsApp da Bug Busters.
+    </p>
+    <a id="whatsapp-link" class="btn btn-primary" target="_blank" rel="noopener">Continuar no WhatsApp</a>
+    <p style="margin-top:2rem"><a href="/">← Voltar à página inicial</a></p>
+  </section>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const raw = sessionStorage.getItem('bb_confirmation');
+      if (!raw) { location.href = '/'; return; }
+      const data = JSON.parse(raw);
+      document.getElementById('ref').textContent = data.reference;
+
+      // Obter número de WhatsApp das configurações
+      try {
+        const s = await api('/settings');
+        const num = (s.company_whatsapp || '').replace(/[^\d]/g, '');
+        const msg = encodeURIComponent(
+          `Olá, Bug Busters! Acabei de submeter uma solicitação de projecto. A minha referência é ${data.reference}. Gostaria de conversar sobre os próximos passos.`
+        );
+        document.getElementById('whatsapp-link').href = `https://wa.me/${num}?text=${msg}`;
+      } catch {
+        document.getElementById('whatsapp-link').style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>

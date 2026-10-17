@@ -1,0 +1,32 @@
+# Dependências
+node_modules/
+
+# Ambiente
+.env
+.env.local
+.env.*.local
+
+# Base de dados local
+database/*.db
+database/*.db-wal
+database/*.db-shm
+
+# Builds
+dist/
+build/
+.next/
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Vercel
+.vercel
+
+# Backups
+backup-*.sql
+cookies.txt

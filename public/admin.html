@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Painel — Bug Busters</title>
+  <meta name="description" content="Painel de administração Bug Busters." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="__PAGE_URL__" />
+  <meta property="og:title" content="Painel — Bug Busters" />
+  <meta property="og:description" content="Painel de administração Bug Busters." />
+  <meta property="og:image" content="__PUBLIC_ORIGIN__/img/meta.jpeg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:alt" content="Logo da Bug Busters" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Painel — Bug Busters" />
+  <meta name="twitter:description" content="Painel de administração Bug Busters." />
+  <meta name="twitter:image" content="__PUBLIC_ORIGIN__/img/meta.jpeg" />
+  <meta name="twitter:image:alt" content="Logo da Bug Busters" />
+  <link rel="icon" type="image/jpeg" href="/img/icon.jpeg" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="admin-sidebar">
+      <a class="logo" href="/" style="margin-bottom:2rem">
+        <span class="logo-mark">BB</span><span>Painel</span>
+      </a>
+      <nav>
+        <a href="#" data-page="dashboard">📊 Painel</a>
+        <a href="#" data-page="requests">📥 Solicitações</a>
+        <a href="#" data-page="clients">👥 Clientes</a>
+        <a href="#" data-page="audit">🔍 Auditoria</a>
+        <a href="#" data-page="settings">⚙️ Configurações</a>
+      </nav>
+      <div style="margin-top:3rem;padding-top:1rem;border-top:1px solid rgba(34,211,238,0.1)">
+        <p style="font-size:0.85rem;color:var(--gray-500);margin-bottom:0.5rem" id="admin-user"></p>
+        <button class="btn btn-outline" style="width:100%" onclick="logout()">Terminar sessão</button>
+      </div>
+    </aside>
+    <main class="admin-main" id="admin-content"></main>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

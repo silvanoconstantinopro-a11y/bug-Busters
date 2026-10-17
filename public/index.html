@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bug Busters — Software & Intelligent Systems</title>
+  <meta name="description" content="Programação, desenvolvimento web e mobile, sistemas empresariais e inteligência artificial — feitos à medida do seu projecto." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="__PAGE_URL__" />
+  <meta property="og:title" content="Bug Busters — Software & Intelligent Systems" />
+  <meta property="og:description" content="Programação, desenvolvimento web e mobile, sistemas empresariais e inteligência artificial — feitos à medida do seu projecto." />
+  <meta property="og:image" content="__PUBLIC_ORIGIN__/img/meta.jpeg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:alt" content="Logo da Bug Busters" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Bug Busters — Software & Intelligent Systems" />
+  <meta name="twitter:description" content="Programação, desenvolvimento web e mobile, sistemas empresariais e inteligência artificial — feitos à medida do seu projecto." />
+  <meta name="twitter:image" content="__PUBLIC_ORIGIN__/img/meta.jpeg" />
+  <meta name="twitter:image:alt" content="Logo da Bug Busters" />
+  <link rel="icon" type="image/jpeg" href="/img/icon.jpeg" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav">
+      <a class="logo" href="/">
+        <span class="logo-mark">BB</span>
+        <span>BUG BUSTERS</span>
+      </a>
+      <nav class="menu">
+        <a href="/">Início</a>
+        <a href="servicos.html">Serviços</a>
+        <a href="equipa.html">Equipa</a>
+        <a href="portfolio.html">Portfólio</a>
+        <a href="contactos.html">Contactos</a>
+        <a class="btn btn-primary" href="solicitar.html">Solicitar Projecto</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div>
+      <h1>Transformamos ideias em <span>soluções inteligentes</span>.</h1>
+      <p>Programação, desenvolvimento web e mobile, sistemas empresariais e inteligência artificial — feitos à medida do seu projecto.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="solicitar.html">Solicitar um Projecto</a>
+        <a class="btn btn-outline" href="servicos.html">Ver Serviços</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <pre class="code">$ bb --build "a sua ideia"
+✓ requisitos analisados
+✓ arquitectura definida
+✓ solução em desenvolvimento
+✓ pronto para escalar</pre>
+    </div>
+  </section>
+
+  <section>
+    <h2>Os nossos serviços</h2>
+    <p class="subtitle">Soluções completas para empresas, empreendedores, estudantes e instituições.</p>
+    <div class="grid grid-3" id="services-grid"></div>
+  </section>
+
+  <section>
+    <h2>Portfólio</h2>
+    <p class="subtitle">Alguns dos projectos que desenvolvemos.</p>
+    <div class="grid grid-3" id="portfolio-grid"></div>
+  </section>
+
+  <section>
+    <h2>Conheça a equipa</h2>
+    <p class="subtitle">Pessoas dedicadas a resolver problemas reais com tecnologia.</p>
+    <div class="grid grid-3" id="team-grid"></div>
+  </section>
+
+  <footer class="site-footer">
+    <p>© 2026 Bug Busters — Technology • Programming • Intelligent Systems</p>
+    <p style="margin-top:0.5rem">
+      <a href="privacidade.html">Privacidade</a> ·
+      <a href="contactos.html">Contactos</a> ·
+      <a href="login.html">Painel</a>
+    </p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    loadServices('services-grid');
+    loadPortfolio('portfolio-grid');
+    loadTeam('team-grid');
+    loadSettings();
+  </script>
+</body>
+</html>
